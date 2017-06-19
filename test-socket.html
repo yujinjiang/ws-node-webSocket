@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var ws = new WebSocket("ws://localhost:8181");
+        ws.onopen = function(e) {
+            console.log('Connection to server opened');
+            ws.send({
+                'lls': 'wws'
+            });
+        }
+        ws.onmessage = function() {
+            console.log(message);
+        }
+
+        function sendMessage() {
+            ws.send($('#message').val());
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
